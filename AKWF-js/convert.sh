@@ -30,7 +30,7 @@ fi
 # Function to process a single file and normalize values
 process_file() {
     local file="$1"
-    grep -A 300 "AKWF_[0-9a-z_]* \[\] = {" "$file" | \
+    grep -A 300 "AKWF_[0-9a-zA-Z_]* \[\] = {" "$file" | \
         sed -n '/\[\] = {/,/};/p' | \
         sed 's/^const.*\[\] = {//; s/};$//' | \
         tr -d ',' | \
